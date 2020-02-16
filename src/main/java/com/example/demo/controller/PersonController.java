@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.annotations.JSONGetMapping;
+import com.example.demo.annotations.JSONPostMapping;
 import com.example.demo.service.PersonService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -11,8 +13,13 @@ public class PersonController {
     @Autowired
     private PersonService mainService;
 
-    @RequestMapping(value = "/person", method = RequestMethod.GET)
+    @JSONGetMapping(value = "/person")
     public String getPerson() {
         return mainService.getPerson();
+    }
+
+    @JSONPostMapping(value = "/person")
+    public String createPerson(@RequestBody String payload) throws Exception {
+        return mainService.createPerson(payload);
     }
 }
