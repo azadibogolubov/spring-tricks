@@ -3,8 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.annotations.JSONGetMapping;
 import com.example.demo.annotations.JSONPostMapping;
 import com.example.demo.service.PersonService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +15,12 @@ public class PersonController {
 
     @JSONGetMapping(value = "/person")
     public String getPerson() {
-        return mainService.getPerson();
+        return mainService.getAllPeople();
+    }
+
+    @JSONGetMapping(value = "/person/{id}")
+    public String getPerson(@PathVariable Long id) {
+        return mainService.getPerson(id);
     }
 
     @JSONPostMapping(value = "/person")

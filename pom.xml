@@ -35,6 +35,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- MySQL connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
+        </dependency>
+
         <!-- Spring Boot Web dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,11 +50,16 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- JSON dependency -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20190722</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
     </dependencies>
 
